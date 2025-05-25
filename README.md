@@ -81,7 +81,7 @@ start_date,end_date,fte,position
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ehsanramezani/career.github.io.git
+   git clone https://github.com/eramezani/career.git
    ```
 
 2. Open `index.html` in your browser or use a local server:
@@ -107,4 +107,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Ehsan Ramezani - [ramezani.e@wehi.edu.au](mailto:ramezani.e@wehi.edu.au)
 
-Project Link: [https://github.com/ehsanramezani/career.github.io](https://github.com/ehsanramezani/career.github.io) 
+Project Link: [https://github.com/eramezani/career](https://github.com/eramezani/career) 
