@@ -4,7 +4,7 @@ A web-based tool for calculating career disruption and FTE (Full-Time Equivalent
 
 ## Live Demo
 
-Visit the live demo at: [https://ehsanramezani.github.io/career/](https://ehsanramezani.github.io/career/)
+Visit the live demo at: [https://eramezani.github.io/career/](https://eramezani.github.io/career/)
 
 ## Features
 
