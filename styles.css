@@ -1,0 +1,311 @@
+/* Custom styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* Navigation styles */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-brand {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.nav-link {
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #3498db;
+}
+
+/* Card styles */
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.display-4 {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.lead {
+    font-weight: 400;
+}
+
+/* Custom button styles */
+.btn-primary {
+    background-color: #3498db;
+    border-color: #3498db;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+/* About section styles */
+#about ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#about ul li {
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+#about ul li:before {
+    content: "•";
+    color: #3498db;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Contact section styles */
+.contact-list {
+    padding: 1rem 0;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.contact-item:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.contact-link {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.contact-link:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Template download styles */
+.template-download {
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.template-download:hover {
+    border-color: #3498db;
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.1);
+}
+
+.template-download .btn-primary {
+    transition: transform 0.2s ease-in-out;
+}
+
+.template-download .btn-primary:hover {
+    transform: translateY(-2px);
+}
+
+.template-download small {
+    font-size: 0.85rem;
+}
+
+/* Upload section styles */
+.upload-area {
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6 !important;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.upload-area:hover {
+    border-color: #3498db !important;
+    background-color: #f1f8ff;
+}
+
+.upload-area.dragover {
+    border-color: #3498db !important;
+    background-color: #e3f2fd;
+}
+
+#validationResults {
+    max-height: none;
+}
+
+#validationResults.has-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.validation-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid transparent;
+}
+
+.validation-item.success {
+    border-left-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.validation-item.error {
+    border-left-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.validation-item.warning {
+    border-left-color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.validation-icon {
+    margin-right: 0.75rem;
+    font-size: 1.25rem;
+}
+
+.validation-message {
+    flex-grow: 1;
+}
+
+/* Results table styles */
+.results-table {
+    margin-top: 1rem;
+}
+
+.results-table .table {
+    margin-bottom: 0;
+}
+
+.results-table .table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* Input validation styles */
+.input-validation {
+    margin-top: 2rem;
+}
+
+.input-validation .table {
+    font-size: 0.9rem;
+}
+
+.input-validation .table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.input-validation .table td {
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.input-validation .table td:nth-child(2) {
+    white-space: normal;
+    word-break: break-word;
+    min-width: 200px;
+}
+
+.input-validation .table-success {
+    background-color: rgba(40, 167, 69, 0.1) !important;
+}
+
+.input-validation .table-danger {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+.input-validation .table-primary {
+    background-color: rgba(13, 110, 253, 0.1) !important;
+}
+
+.input-validation .table-secondary {
+    background-color: rgba(108, 117, 125, 0.1) !important;
+}
+
+.input-validation .fa-check-circle {
+    color: #28a745;
+}
+
+.input-validation .fa-exclamation-circle {
+    color: #dc3545;
+}
+
+.input-validation .fa-info-circle {
+    color: #6c757d;
+}
+
+/* Make the validation table scrollable if it gets too long */
+.input-validation .table-responsive {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem;
+    }
+    
+    .navbar-brand {
+        font-size: 1.1rem;
+    }
+    
+    .contact-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contact-item .text-muted {
+        margin-left: 1.5rem !important;
+        margin-top: 0.25rem;
+    }
+    
+    .template-download {
+        padding: 1rem !important;
+    }
+    
+    .template-download .d-flex {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .template-download .fa-file-csv {
+        margin-bottom: 1rem;
+        margin-right: 0 !important;
+    }
+    
+    .upload-area {
+        padding: 1.5rem !important;
+    }
+    
+    .upload-area h4 {
+        font-size: 1.1rem;
+    }
+} 

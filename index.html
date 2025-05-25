@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Disruption Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mt-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><i class="fas fa-calculator me-2"></i>Career Calculator</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#upload">Upload</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <header class="text-center my-5">
+            <h1 class="display-4">Career Disruption Calculator</h1>
+            <p class="lead text-muted">Calculate the impact of career disruptions on your professional journey</p>
+        </header>
+
+        <main>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div id="app">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div id="about" class="row justify-content-center mt-4">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h3 mb-4">About This Tool</h2>
+                            <p>The Career Disruption Calculator is a specialized tool designed to help researchers and professionals calculate and document their career disruptions for grant applications and other professional purposes. Whether you're applying for research grants, academic positions, or career development opportunities, this tool simplifies the process of quantifying and presenting your career breaks.</p>
+                            
+                            <h3 class="h4 mt-4 mb-3">Key Features</h3>
+                            <ul>
+                                <li>Standardized calculation of career disruption periods</li>
+                                <li>Support for multiple types of career breaks (parental leave, medical leave, caregiving, etc.)</li>
+                                <li>Export functionality for grant applications</li>
+                                <li>Compliance with major funding agency requirements</li>
+                                <li>Easy-to-use interface for quick calculations</li>
+                            </ul>
+
+                            <h3 class="h4 mt-4 mb-3">Input Template</h3>
+                            <div class="template-download p-4 bg-light rounded">
+                                <div class="d-flex align-items-center mb-3">
+                                    <i class="fas fa-file-csv fa-2x text-primary me-3"></i>
+                                    <div>
+                                        <h4 class="h5 mb-1">Download Input Template</h4>
+                                        <p class="text-muted mb-0">Get started with our CSV template</p>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-primary btn-lg w-100" id="templateDownloadBtn">
+                                    <i class="fas fa-download me-2"></i>Download Template
+                                </a>
+                                <div class="mt-3">
+                                    <small class="text-muted">
+                                        <i class="fas fa-info-circle me-1"></i>
+                                        <strong>Template Format:</strong> The CSV file includes four columns: start_date, end_date, fte, and position. All dates must be in DD/MM/YYYY format.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upload Section -->
+            <div id="upload" class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h3 mb-4">Upload Your Career Timeline</h2>
+                            <div class="upload-container">
+                                <div class="upload-area p-4 border rounded text-center mb-3" id="dropZone">
+                                    <i class="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+                                    <h4 class="h5 mb-2">Drag & Drop your CSV file here</h4>
+                                    <p class="text-muted mb-3">or</p>
+                                    <label for="fileInput" class="btn btn-primary">
+                                        <i class="fas fa-folder-open me-2"></i>Browse Files
+                                    </label>
+                                    <input type="file" id="fileInput" accept=".csv" class="d-none">
+                                </div>
+                                <div id="validationResults" class="mt-3" style="display: none;">
+                                    <h5 class="mb-3">Validation Results</h5>
+                                    <div id="validationList" class="list-group">
+                                        <!-- Validation results will be inserted here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FTE Calculator Section -->
+            <div id="fte-calculator" class="row justify-content-center mt-4" style="display: none;">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h3 mb-4">FTE Calculator</h2>
+                            <p class="text-muted mb-4">Calculate FTE years for any date range or find dates that match your target FTE.</p>
+                            
+                            <div class="calculator-form">
+                                <!-- Calculation Mode Selection -->
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold">What would you like to calculate?</label>
+                                    <div class="btn-group w-100" role="group">
+                                        <input type="radio" class="btn-check" name="calcMode" id="calcFte" value="fte" checked>
+                                        <label class="btn btn-outline-primary" for="calcFte">
+                                            <i class="fas fa-calculator me-2"></i>Calculate FTE Years
+                                        </label>
+                                        
+                                        <input type="radio" class="btn-check" name="calcMode" id="calcStart" value="start">
+                                        <label class="btn btn-outline-primary" for="calcStart">
+                                            <i class="fas fa-calendar-plus me-2"></i>Find Start Date
+                                        </label>
+                                        
+                                        <input type="radio" class="btn-check" name="calcMode" id="calcEnd" value="end">
+                                        <label class="btn btn-outline-primary" for="calcEnd">
+                                            <i class="fas fa-calendar-plus me-2"></i>Find End Date
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Input Fields -->
+                                <div class="row g-3">
+                                    <!-- Start Date Input -->
+                                    <div class="col-md-6 calc-input" data-mode="fte,end">
+                                        <label for="startDate" class="form-label">Start Date</label>
+                                        <input type="text" class="form-control" id="startDate" placeholder="DD/MM/YYYY">
+                                    </div>
+
+                                    <!-- End Date Input -->
+                                    <div class="col-md-6 calc-input" data-mode="fte,start">
+                                        <label for="endDate" class="form-label">End Date</label>
+                                        <input type="text" class="form-control" id="endDate" placeholder="DD/MM/YYYY">
+                                    </div>
+
+                                    <!-- FTE Years Input -->
+                                    <div class="col-md-6 calc-input" data-mode="start,end">
+                                        <label for="fteYears" class="form-label">Target FTE Years</label>
+                                        <input type="number" class="form-control" id="fteYears" placeholder="0.00" step="0.01">
+                                    </div>
+                                </div>
+
+                                <!-- Assumed FTE Inputs -->
+                                <div id="assumedFteContainer" class="row g-3 mt-2" style="display: none;">
+                                    <div id="beforeFteContainer" class="col-md-6" style="display: none;">
+                                        <label for="beforeFte" class="form-label">Assumed FTE Before First Record</label>
+                                        <input type="number" class="form-control" id="beforeFte" placeholder="0.00" step="0.01" min="0" max="1">
+                                        <small class="text-muted">Default: First record's FTE</small>
+                                    </div>
+                                    <div id="afterFteContainer" class="col-md-6" style="display: none;">
+                                        <label for="afterFte" class="form-label">Assumed FTE After Last Record</label>
+                                        <input type="number" class="form-control" id="afterFte" placeholder="0.00" step="0.01" min="0" max="1">
+                                        <small class="text-muted">Default: Last record's FTE</small>
+                                    </div>
+                                </div>
+
+                                <!-- Instructions -->
+                                <div class="mt-3">
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <strong>Instructions:</strong>
+                                        <ul class="mb-0 mt-2" id="calcInstructions">
+                                            <li>Enter start and end dates to calculate FTE years</li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <!-- Results and Warnings -->
+                                <div class="mt-3">
+                                    <div id="calculatorWarning" class="alert alert-warning" style="display: none;"></div>
+                                    <div id="calculatorResult" class="alert alert-info" style="display: none;"></div>
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="mt-3">
+                                    <button class="btn btn-primary" id="calculateBtn">
+                                        <i class="fas fa-calculator me-2"></i>Calculate
+                                    </button>
+                                    <button class="btn btn-outline-secondary ms-2" id="resetBtn">
+                                        <i class="fas fa-redo me-2"></i>Reset
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Section -->
+            <div id="contact" class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h2 class="h3 mb-4">Contact Us</h2>
+                            <p class="mb-4">Have questions or feedback? Feel free to reach out to our team:</p>
+                            <div class="contact-list">
+                                <div class="contact-item mb-3">
+                                    <i class="fas fa-envelope me-2 text-primary"></i>
+                                    <a href="mailto:ramezani.e@wehi.edu.au" class="contact-link">ramezani.e@wehi.edu.au</a>
+                                    <span class="text-muted ms-2">- Support and Technical Issues</span>
+                                </div>
+                                <div class="contact-item mb-3">
+                                    <i class="fas fa-envelope me-2 text-primary"></i>
+                                    <a href="mailto:davidson.n@wehi.edu.au" class="contact-link">davidson.n@wehi.edu.au</a>
+                                    <span class="text-muted ms-2">- Support and Technical Issues</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="text-center mt-5 mb-3">
+            <p class="text-muted">© 2025 Ehsan Ramezani. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
