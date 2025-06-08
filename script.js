@@ -551,7 +551,7 @@ function initFileUpload() {
         try {
             const csvContent = [
                 ['start_date', 'end_date', 'position', 'fte_years'],
-                ...results.map(r => [r.startDate, r.endDate, r.position, r.fteYears])
+                ...results.slice().reverse().map(r => [r.startDate, r.endDate, r.position, r.fteYears])
             ].map(row => row.join(',')).join('\n');
 
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
