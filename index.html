@@ -40,10 +40,59 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#infoOffcanvas">
+                                <i class="fas fa-info-circle"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <!-- Offcanvas Info Panel -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="infoOffcanvas" aria-labelledby="infoOffcanvasLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="infoOffcanvasLabel">
+                    <i class="fas fa-shield-alt text-primary me-2"></i>About This Tool
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">Privacy & Security</h6>
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="fas fa-lock text-primary mt-1 me-3"></i>
+                        <div>
+                            <p class="mb-0">This calculator runs entirely in your browser. Your data never leaves your computer and is not collected or stored by us.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="fw-bold mb-3">Open Source</h6>
+                    <div class="d-flex align-items-start mb-3">
+                        <i class="fab fa-github text-primary mt-1 me-3"></i>
+                        <div>
+                            <p class="mb-2">This is an open source project. Feel free to review the code or contribute!</p>
+                            <a href="https://github.com/eramezani/career" class="btn btn-outline-primary btn-sm" target="_blank">
+                                <i class="fab fa-github me-2"></i>View on GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h6 class="fw-bold mb-3">Disclaimer</h6>
+                    <div class="d-flex align-items-start">
+                        <i class="fas fa-exclamation-circle text-primary mt-1 me-3"></i>
+                        <div>
+                            <p class="mb-0">This calculator provides estimates based on the input data. Users are responsible for verifying the accuracy of all calculations and results. The tool is provided "as is" without any warranty of accuracy or fitness for any particular purpose.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <header class="text-center my-5">
             <h1 class="display-4">Career Disruption Calculator</h1>
@@ -65,34 +114,132 @@
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <h2 class="h3 mb-4">About This Tool</h2>
-                            <p>The Career Disruption Calculator is a specialized tool designed to help researchers and professionals calculate and document their career disruptions for grant applications and other professional purposes. Whether you're applying for research grants, academic positions, or career development opportunities, this tool simplifies the process of quantifying and presenting your career breaks.</p>
+                            <p class="lead">A specialised calculator for researchers to document career disruptions and calculate FTE years, particularly for NHMRC Investigator Grant applications.</p>
                             
-                            <h3 class="h4 mt-4 mb-3">Key Features</h3>
-                            <ul>
-                                <li>Standardized calculation of career disruption periods</li>
-                                <li>Support for multiple types of career breaks (parental leave, medical leave, caregiving, etc.)</li>
-                                <li>Export functionality for grant applications</li>
-                                <li>Compliance with major funding agency requirements</li>
-                                <li>Easy-to-use interface for quick calculations</li>
-                            </ul>
-
-                            <h3 class="h4 mt-4 mb-3">Input Template</h3>
-                            <div class="template-download p-4 bg-light rounded">
-                                <div class="d-flex align-items-center mb-3">
-                                    <i class="fas fa-file-csv fa-2x text-primary me-3"></i>
-                                    <div>
-                                        <h4 class="h5 mb-1">Download Input Template</h4>
-                                        <p class="text-muted mb-0">Get started with our CSV template</p>
+                            <!-- Quick Start Guide -->
+                            <div class="accordion mt-4" id="aboutAccordion">
+                                <!-- What You'll Get -->
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutput">
+                                            <i class="fas fa-table text-primary me-2"></i>What You'll Get
+                                        </button>
+                                    </h3>
+                                    <div id="collapseOutput" class="accordion-collapse collapse show" data-bs-parent="#aboutAccordion">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="card h-100 border-0 bg-light">
+                                                        <div class="card-body">
+                                                            <h4 class="h6 mb-3">Relative to Opportunity Results</h4>
+                                                            <p class="small mb-2">Shows FTE years per position</p>
+                                                            <div class="bg-white p-2 rounded">
+                                                                <small class="text-muted">Example Output:</small>
+                                                                <pre class="mb-0"><code>Research Fellow: 2.5 FTE years
+Senior Research Fellow: 3.0 FTE years</code></pre>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="card h-100 border-0 bg-light">
+                                                        <div class="card-body">
+                                                            <h4 class="h6 mb-3">Career Disruption Results</h4>
+                                                            <p class="small mb-2">Shows periods of reduced FTE</p>
+                                                            <div class="bg-white p-2 rounded">
+                                                                <small class="text-muted">Example Output:</small>
+                                                                <pre class="mb-0"><code>01/01/2021 - 30/06/2021: 0.5 FTE
+01/07/2021 - 31/12/2021: 0.8 FTE</code></pre>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <a href="#" class="btn btn-primary btn-lg w-100" id="templateDownloadBtn">
-                                    <i class="fas fa-download me-2"></i>Download Template
-                                </a>
-                                <div class="mt-3">
-                                    <small class="text-muted">
-                                        <i class="fas fa-info-circle me-1"></i>
-                                        <strong>Template Format:</strong> The CSV file includes four columns: start_date, end_date, fte, and position. All dates must be in DD/MM/YYYY format.
-                                    </small>
+
+                                <!-- FTE Calculator -->
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCalculator">
+                                            <i class="fas fa-calculator text-primary me-2"></i>FTE Calculator
+                                        </button>
+                                    </h3>
+                                    <div id="collapseCalculator" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                                        <div class="accordion-body">
+                                            <div class="row g-3">
+                                                <div class="col-md-4">
+                                                    <div class="card h-100 border-0 bg-light">
+                                                        <div class="card-body">
+                                                            <h4 class="h6 mb-3">Calculate FTE Years</h4>
+                                                            <p class="small mb-2">Find FTE years between dates</p>
+                                                            <div class="bg-white p-2 rounded">
+                                                                <small class="text-muted">Example:</small>
+                                                                <p class="mb-0 small">"What's my FTE from 2020-2022?"</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="card h-100 border-0 bg-light">
+                                                        <div class="card-body">
+                                                            <h4 class="h6 mb-3">Find Start Date</h4>
+                                                            <p class="small mb-2">Calculate when to start</p>
+                                                            <div class="bg-white p-2 rounded">
+                                                                <small class="text-muted">Example:</small>
+                                                                <p class="mb-0 small">"When should I start to get 5 FTE years by 2025?"</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="card h-100 border-0 bg-light">
+                                                        <div class="card-body">
+                                                            <h4 class="h6 mb-3">Find End Date</h4>
+                                                            <p class="small mb-2">Calculate when you'll reach target</p>
+                                                            <div class="bg-white p-2 rounded">
+                                                                <small class="text-muted">Example:</small>
+                                                                <p class="mb-0 small">"When will I reach 10 FTE years from 2020?"</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- How to Use -->
+                                <div class="accordion-item">
+                                    <h3 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUsage">
+                                            <i class="fas fa-play-circle text-primary me-2"></i>How to Use
+                                        </button>
+                                    </h3>
+                                    <div id="collapseUsage" class="accordion-collapse collapse" data-bs-parent="#aboutAccordion">
+                                        <div class="accordion-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <h4 class="h6 mb-3">Step 1: Download Template</h4>
+                                                    <p class="small mb-3">Get started with our CSV template that includes example data.</p>
+                                                    <a href="#" class="btn btn-primary btn-sm" id="templateDownloadBtn">
+                                                        <i class="fas fa-download me-2"></i>Download Template
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <h4 class="h6 mb-3">Step 2: Prepare Your Data</h4>
+                                                    <p class="small mb-2">Your CSV file should include:</p>
+                                                    <ul class="small mb-0">
+                                                        <li>start_date (DD/MM/YYYY)</li>
+                                                        <li>end_date (DD/MM/YYYY)</li>
+                                                        <li>fte (0 to 1)</li>
+                                                        <li>position (role title)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -117,7 +264,12 @@
                                     <input type="file" id="fileInput" accept=".csv" class="d-none">
                                 </div>
                                 <div id="validationResults" class="mt-3" style="display: none;">
-                                    <h5 class="mb-3">Validation Results</h5>
+                                    <!-- Disclaimer Alert -->
+                                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                        <h5 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Important Disclaimer</h5>
+                                        <p class="mb-0">This calculator provides estimates based on the input data. All calculations are performed locally in your browser - your data never leaves your computer. Users are responsible for verifying the accuracy of all calculations and results. The tool is provided "as is" without any warranty of accuracy or fitness for any particular purpose.</p>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
                                     <div id="validationList" class="list-group">
                                         <!-- Validation results will be inserted here -->
                                     </div>
@@ -251,7 +403,14 @@
         </main>
 
         <footer class="text-center mt-5 mb-3">
-            <p class="text-muted">© 2025 Ehsan Ramezani. All rights reserved.</p>
+            <div class="d-flex justify-content-center align-items-center mb-2">
+                <a href="https://github.com/eramezani/career" class="text-muted text-decoration-none me-3" target="_blank">
+                    <i class="fab fa-github fa-lg"></i> View on GitHub
+                </a>
+                <span class="text-muted">|</span>
+                <span class="text-muted ms-3">© 2025 Ehsan Ramezani. All rights reserved.</span>
+            </div>
+            <p class="text-muted small">This is an open source project. Feel free to contribute or report issues on GitHub.</p>
         </footer>
     </div>
 
@@ -259,5 +418,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JavaScript -->
     <script src="script.js"></script>
+
+    <!-- Add script for first-time visit handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if this is the first visit
+            if (!localStorage.getItem('hasVisitedBefore')) {
+                // Show the info panel
+                var infoOffcanvas = new bootstrap.Offcanvas(document.getElementById('infoOffcanvas'));
+                infoOffcanvas.show();
+                
+                // Set the flag in localStorage
+                localStorage.setItem('hasVisitedBefore', 'true');
+            }
+        });
+    </script>
 </body>
 </html> 

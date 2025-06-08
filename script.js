@@ -470,7 +470,7 @@ function initFileUpload() {
                             </tr>
                         </thead>
                         <tbody>
-                            ${results.rtoResults.map(r => `
+                            ${results.rtoResults.slice().reverse().map(r => `
                                 <tr>
                                     <td>${r.startDate}</td>
                                     <td>${r.endDate}</td>
@@ -800,6 +800,7 @@ function initFteCalculator() {
         let totalFteDays = 0;
         let currentDate = new Date(startDate);
 
+        // Include both start and end dates in the calculation
         while (currentDate <= endDate) {
             if (currentDate < firstDate) {
                 // Before first record - use assumed FTE
@@ -825,6 +826,7 @@ function initFteCalculator() {
         let currentDate = new Date(endDate);
         const targetFteDays = targetFteYears * 365;
 
+        // Include both start and end dates in the calculation
         while (totalFteDays < targetFteDays) {
             if (currentDate < firstDate) {
                 // Before first record - use assumed FTE
@@ -842,6 +844,8 @@ function initFteCalculator() {
             currentDate.setDate(currentDate.getDate() - 1);
         }
 
+        // Add one day back since we went one day too far
+        currentDate.setDate(currentDate.getDate() + 1);
         return currentDate;
     }
 
@@ -850,6 +854,7 @@ function initFteCalculator() {
         let currentDate = new Date(startDate);
         const targetFteDays = targetFteYears * 365;
 
+        // Include both start and end dates in the calculation
         while (totalFteDays < targetFteDays) {
             if (currentDate < firstDate) {
                 // Before first record - use assumed FTE
@@ -867,6 +872,8 @@ function initFteCalculator() {
             currentDate.setDate(currentDate.getDate() + 1);
         }
 
+        // Subtract one day since we went one day too far
+        currentDate.setDate(currentDate.getDate() - 1);
         return currentDate;
     }
 
