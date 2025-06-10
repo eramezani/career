@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFteCalculator();
 
     // Add click event listener for template download
-    const templateDownloadBtn = document.querySelector('.template-download .btn-primary');
+    const templateDownloadBtn = document.getElementById('templateDownloadBtn');
     if (templateDownloadBtn) {
         templateDownloadBtn.addEventListener('click', function(e) {
             e.preventDefault();
