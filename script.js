@@ -799,9 +799,19 @@ function initFteCalculator() {
     function calculateFteYears(startDate, endDate, firstDate, lastDate, assumedBeforeFte, assumedAfterFte) {
         let totalFteDays = 0;
         let currentDate = new Date(startDate);
+        const maxIterations = 365 * 100; // Prevent infinite loops (100 years max)
+        let iterations = 0;
+
+        // Validate inputs
+        if (!startDate || !endDate) {
+            throw new Error('Start and end dates are required');
+        }
+        if (startDate > endDate) {
+            throw new Error('Start date cannot be after end date');
+        }
 
         // Include both start and end dates in the calculation
-        while (currentDate <= endDate) {
+        while (currentDate <= endDate && iterations < maxIterations) {
             if (currentDate < firstDate) {
                 // Before first record - use assumed FTE
                 totalFteDays += assumedBeforeFte;
@@ -816,6 +826,13 @@ function initFteCalculator() {
                 }
             }
             currentDate.setDate(currentDate.getDate() + 1);
+            iterations++;
+        }
+
+        // If we hit max iterations, return a reasonable estimate
+        if (iterations >= maxIterations) {
+            const daysDiff = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24)) + 1;
+            return (daysDiff * assumedBeforeFte) / 365;
         }
 
         return totalFteDays / 365;
@@ -827,6 +844,14 @@ function initFteCalculator() {
         const targetFteDays = targetFteYears * 365;
         const maxIterations = 365 * 100; // Prevent infinite loops (100 years max)
         let iterations = 0;
+
+        // Validate inputs
+        if (!endDate || !targetFteYears) {
+            throw new Error('End date and target FTE years are required');
+        }
+        if (targetFteYears <= 0) {
+            throw new Error('Target FTE years must be greater than 0');
+        }
 
         // Include both start and end dates in the calculation
         while (totalFteDays < targetFteDays && iterations < maxIterations) {
@@ -864,6 +889,14 @@ function initFteCalculator() {
         const maxIterations = 365 * 100; // Prevent infinite loops (100 years max)
         let iterations = 0;
 
+        // Validate inputs
+        if (!startDate || !targetFteYears) {
+            throw new Error('Start date and target FTE years are required');
+        }
+        if (targetFteYears <= 0) {
+            throw new Error('Target FTE years must be greater than 0');
+        }
+
         // Include both start and end dates in the calculation
         while (totalFteDays < targetFteDays && iterations < maxIterations) {
             if (currentDate < firstDate) {
@@ -894,6 +927,7 @@ function initFteCalculator() {
     }
 
     function findRecordForDate(date) {
+        if (!date || !careerData) return null;
         return careerData.find(record => 
             date >= record.startDate && date <= record.endDate
         );
