@@ -825,9 +825,11 @@ function initFteCalculator() {
         let totalFteDays = 0;
         let currentDate = new Date(endDate);
         const targetFteDays = targetFteYears * 365;
+        const maxIterations = 365 * 100; // Prevent infinite loops (100 years max)
+        let iterations = 0;
 
         // Include both start and end dates in the calculation
-        while (totalFteDays < targetFteDays) {
+        while (totalFteDays < targetFteDays && iterations < maxIterations) {
             if (currentDate < firstDate) {
                 // Before first record - use assumed FTE
                 totalFteDays += assumedBeforeFte;
@@ -842,6 +844,12 @@ function initFteCalculator() {
                 }
             }
             currentDate.setDate(currentDate.getDate() - 1);
+            iterations++;
+        }
+
+        // If we hit max iterations, return the earliest possible date
+        if (iterations >= maxIterations) {
+            return new Date(firstDate.getFullYear() - 100, firstDate.getMonth(), firstDate.getDate());
         }
 
         // Add one day back since we went one day too far
@@ -853,9 +861,11 @@ function initFteCalculator() {
         let totalFteDays = 0;
         let currentDate = new Date(startDate);
         const targetFteDays = targetFteYears * 365;
+        const maxIterations = 365 * 100; // Prevent infinite loops (100 years max)
+        let iterations = 0;
 
         // Include both start and end dates in the calculation
-        while (totalFteDays < targetFteDays) {
+        while (totalFteDays < targetFteDays && iterations < maxIterations) {
             if (currentDate < firstDate) {
                 // Before first record - use assumed FTE
                 totalFteDays += assumedBeforeFte;
@@ -870,6 +880,12 @@ function initFteCalculator() {
                 }
             }
             currentDate.setDate(currentDate.getDate() + 1);
+            iterations++;
+        }
+
+        // If we hit max iterations, return the latest possible date
+        if (iterations >= maxIterations) {
+            return new Date(lastDate.getFullYear() + 100, lastDate.getMonth(), lastDate.getDate());
         }
 
         // Subtract one day since we went one day too far
