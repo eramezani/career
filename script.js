@@ -268,7 +268,7 @@ function initFileUpload() {
                                 }
 
                                 // Validate date continuity
-                                if (index > 1) {
+                                if (index > 0) {
                                     const prevLine = lines[index - 1].trim();
                                     if (prevLine) {
                                         const prevEndDate = prevLine.split(',')[1].trim();
