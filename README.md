@@ -131,7 +131,7 @@ This project is licensed under the **GNU General Public Licence v3** - see the [
 ## 🔗 Related Resources
 
 - [NHMRC Investigator Grant Guidelines](https://www.nhmrc.gov.au/funding/find-funding/investigator-grants)
-- [NHMRC Relative to Opportunity Policy](https://www.nhmrc.gov.au/about-us/resources/relative-opportunity-policy)
+- [NHMRC Funding Guidelines](https://www.nhmrc.gov.au/funding/find-funding)
 - [GitHub Repository](https://github.com/eramezani/career)
 
 ---
