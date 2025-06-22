@@ -1,110 +1,139 @@
-# Career Disruption Calculator
+# NHMRC Investigator Grant Career Disruption Calculator
 
-A web-based tool for calculating career disruption and FTE (Full-Time Equivalent) years based on career history data.
+A free, privacy-focused web tool for researchers to calculate career disruption periods and FTE (Full-Time Equivalent) years, specifically designed for **NHMRC Investigator Grant applications**. This calculator helps researchers demonstrate their track record relative to opportunity by accurately documenting career disruptions and calculating precise FTE years for grant submissions.
 
-## Live Demo
+## 🌟 Live Demo
 
-Visit the live demo at: [https://eramezani.github.io/career/](https://eramezani.github.io/career/)
+**Try the calculator now:** [https://eramezani.github.io/career/](https://eramezani.github.io/career/)
 
-## Features
+## 🎯 Purpose
 
-- **CSV File Upload**: Upload your career history data in CSV format
-- **Data Validation**: Automatic validation of CSV format and data integrity
-- **Results Tables**:
-  - Relative to Opportunity Results: Shows calculated FTE years for each position
-  - Career Disruption Results: Shows periods of career disruption (1-FTE)
-- **Download Options**:
-  - Download Relative to Opportunity Results as CSV
-  - Download Career Disruption Results as CSV
-  - Download CSV Template for data entry
-- **Interactive FTE Calculator**:
-  - Calculate FTE years between dates
-  - Find start date based on end date and target FTE years
-  - Find end date based on start date and target FTE years
-  - Automatic handling of periods outside data range with assumed FTE values
+This calculator is specifically designed for **NHMRC Investigator Grant applications** where researchers need to:
+- Document career disruptions (maternity/paternity leave, illness, carer responsibilities)
+- Calculate accurate FTE years for relative to opportunity assessment
+- Generate evidence for grant application requirements
+- Export results in formats suitable for grant submissions
+- Demonstrate research output relative to actual working time
 
-## CSV Format
+## ✨ Key Features
 
-Your CSV file should have the following columns:
-- `start_date`: Start date of the period (DD/MM/YYYY)
-- `end_date`: End date of the period (DD/MM/YYYY)
-- `fte`: Full-time equivalent value (0 to 1)
-- `position`: Position or role title
+### 📊 Career Disruption Analysis
+- **Relative to Opportunity Results**: Calculate FTE years per position with detailed breakdowns
+- **Career Disruption Results**: Identify periods of reduced FTE (1-FTE) with exact dates
+- **Automatic Gap Detection**: Ensures continuous career timeline with validation
+- **Export to CSV**: Download results for grant applications
+- **Data Validation**: Comprehensive error checking and validation
 
-You can download a template CSV file with example data: [Download Template](template.csv)
+### 🧮 Interactive FTE Calculator
+- **Calculate FTE Years**: Find FTE years between any dates
+- **Find Start Date**: Calculate when to start for target FTE years
+- **Find End Date**: Calculate when you'll reach target FTE years
+- **Assumed FTE Handling**: For periods outside your data range
+- **Real-time Calculations**: Instant results with clear explanations
 
-Example:
+### 🔒 Privacy & Security
+- **Client-side Processing**: All calculations done in your browser
+- **No Data Collection**: Your data never leaves your computer
+- **Open Source**: Transparent and verifiable code on GitHub
+- **No Registration Required**: Use immediately without any setup
+- **No Cookies**: Complete privacy protection
+
+## 📋 CSV Format
+
+Your CSV file should include these columns:
+
+| Column | Format | Description |
+|--------|--------|-------------|
+| `start_date` | DD/MM/YYYY | Start date of the period |
+| `end_date` | DD/MM/YYYY | End date of the period |
+| `fte` | 0.0 to 1.0 | Actual FTE worked (not disruption) |
+| `position` | Text | Role title or position |
+
+**Important**: The FTE value should represent your actual working FTE (e.g., 0.5 for half-time, 1.0 for full-time). The calculator automatically calculates disruption periods as (1-FTE).
+
+### Example Data
 ```csv
 start_date,end_date,fte,position
 01/01/2020,31/12/2020,1.0,Research Fellow
 01/01/2021,30/06/2021,0.5,Research Fellow
-01/07/2021,31/12/2021,1.0,Research Fellow
+01/07/2021,31/12/2021,1.0,Senior Research Fellow
 ```
 
-## Usage
+## 🚀 Quick Start
 
-1. **Prepare Your Data**:
-   - Download the template CSV file
-   - Fill in your career history data following the template format
-   - Save the file with a .csv extension
+1. **Download Template**: Click the "Download Template" button in the calculator to get the CSV template with example data
+2. **Prepare Your Data**: Fill in your career timeline with actual FTE values (0.0 to 1.0)
+3. **Upload & Validate**: Drag and drop your CSV file - the tool automatically validates your data
+4. **View Results**: Get Relative to Opportunity and Career Disruption results with detailed breakdowns
+5. **Export**: Download results as CSV files for your grant application
 
-2. **Upload Data**:
-   - Drag and drop your CSV file or click to browse
-   - The file will be automatically validated
+## 🎓 NHMRC Grant Application Support
 
-3. **View Results**:
-   - Relative to Opportunity Results table shows FTE years per position
-   - Career Disruption Results table shows periods of reduced FTE
-   - Download buttons are available for each table
+This calculator is specifically designed to help with **NHMRC Investigator Grant applications**:
 
-4. **Use FTE Calculator**:
-   - Choose calculation mode
-   - Enter required dates and values
-   - Adjust assumed FTE values for periods outside data range
-   - Click Calculate to see results
+### What It Provides
+- **Relative to Opportunity Evidence**: Accurate FTE calculations per position with detailed breakdowns
+- **Career Disruption Documentation**: Clear periods of reduced research capacity with exact dates
+- **Grant-Ready Outputs**: CSV files suitable for grant submissions
+- **Compliance**: Meets NHMRC documentation requirements
+- **Professional Formatting**: Results formatted for grant application inclusion
 
-## Technical Details
+### Common Use Cases
+- Maternity/paternity leave documentation
+- Carer responsibilities during research career
+- Illness or medical leave periods
+- Part-time work arrangements
+- Career breaks for personal reasons
+- Reduced FTE due to administrative duties
+- Research interruptions due to external factors
 
-- Built with vanilla JavaScript
-- No external dependencies
-- Responsive design
-- Client-side processing (no data sent to server)
+## 🛠️ Technical Details
 
-## Browser Support
+- **Frontend**: Vanilla JavaScript, HTML5, CSS3
+- **Framework**: Bootstrap 5 for responsive design
+- **Processing**: 100% client-side (no server required)
+- **Browser Support**: Chrome, Firefox, Safari, Edge
+- **License**: GNU GPL v3
+- **Hosting**: GitHub Pages
+- **Analytics**: Google Analytics (privacy-compliant)
 
-- Chrome (recommended)
-- Firefox
-- Safari
-- Edge
+## 🔧 Development
 
-## Development
+### Local Setup
+```bash
+# Clone the repository
+git clone https://github.com/eramezani/career.git
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/eramezani/career.git
-   ```
+# Navigate to the directory
+cd career
 
-2. Open `index.html` in your browser or use a local server:
-   ```bash
-   python -m http.server 8000
-   ```
+# Open index.html in your browser
+```
 
-3. Visit `http://localhost:8000` in your browser
-
-## Contributing
-
+### Contributing
+We welcome contributions! Please:
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-## License
+## 📞 Contact & Support
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+For technical support or questions about NHMRC grant applications:
 
-## Contact
+- **Ehsan Ramezani**: [ramezani.e@wehi.edu.au](mailto:ramezani.e@wehi.edu.au)
+- **Nathan Davidson**: [davidson.n@wehi.edu.au](mailto:davidson.n@wehi.edu.au)
 
-Ehsan Ramezani - [ramezani.e@wehi.edu.au](mailto:ramezani.e@wehi.edu.au)
+## 📄 Licence
 
-Project Link: [https://github.com/eramezani/career](https://github.com/eramezani/career) 
+This project is licensed under the **GNU General Public Licence v3** - see the [LICENCE](LICENCE) file for details.
+
+## 🔗 Related Resources
+
+- [NHMRC Investigator Grant Guidelines](https://www.nhmrc.gov.au/funding/find-funding/investigator-grants)
+- [NHMRC Relative to Opportunity Policy](https://www.nhmrc.gov.au/about-us/resources/relative-opportunity-policy)
+- [GitHub Repository](https://github.com/eramezani/career)
+
+---
+
+**Keywords**: NHMRC, Investigator Grant, career disruption, FTE calculator, grant application, research career, relative to opportunity, maternity leave, paternity leave, research funding, academic career, career break, full-time equivalent, research output, grant submission, career timeline, Australian research, medical research, research career calculator 
