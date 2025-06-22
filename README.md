@@ -122,7 +122,6 @@ We welcome contributions! Please:
 For technical support or questions about NHMRC grant applications:
 
 - **Ehsan Ramezani**: [ramezani.e@wehi.edu.au](mailto:ramezani.e@wehi.edu.au)
-- **Nathan Davidson**: [davidson.n@wehi.edu.au](mailto:davidson.n@wehi.edu.au)
 
 ## 📄 Licence
 
