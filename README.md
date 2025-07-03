@@ -119,7 +119,7 @@ We welcome contributions! Please:
 
 ## 📞 Contact & Support
 
-For technical support or questions about NHMRC grant applications:
+For technical support or questions about Career Disruption Calculator:
 
 - **Ehsan Ramezani**: [ramezani.e@wehi.edu.au](mailto:ramezani.e@wehi.edu.au)
 
